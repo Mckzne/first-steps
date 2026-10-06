@@ -2,7 +2,6 @@
 #Lists
 number = [1, 2, 3]
 print(number[-1])
-
 #%%
 number[0] = 5
 print(number)
@@ -330,3 +329,46 @@ print(f"She said, \"Python is fun!\"\nAnd then she left.")
 
 #%%
 print(r"C:\Users\Alice\Documents\Python")
+
+#%%
+#Sets: Repeated values do not survive.
+numbers = {1, 1, 2, 3, 4, 5}
+print(numbers)
+print(type(numbers))
+
+#%%
+fruits = {"apple", "banana", "mango", "apple", "orange", "banana"}
+print(type(fruits))
+print(fruits)
+print(len(fruits))
+
+#%%
+numbers = [10, 20, 20, 30, 30, 30, 30, 40, 40]
+unique_numbers = set(numbers)
+print(unique_numbers)
+print(len(unique_numbers))
+
+#%%
+empty = {}
+print(type(empty))
+print(len(empty))
+print(empty)
+
+#%%
+numbers = {10, 20, 30}
+x = numbers.add(40)
+print(numbers)
+print(len(numbers))
+
+#%%
+c = numbers.add(50)
+print(numbers)
+#Note: The add() method does not return any value, it modifies the set in place. Therefore, x and c will be None.
+
+#%%
+fruits.remove("banana")
+print(fruits)
+
+#%%
+fruits.discard("strawberry")
+print(fruits)
