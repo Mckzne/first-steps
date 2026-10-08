@@ -505,3 +505,114 @@ print(type(numbers))
 #but you can have a set contain multiple frozen sets
 #because frozen sets are immutable
 #their hashing would remain unbroken
+
+#%%
+#Dictionaries
+#A list lets you find something using a position. 
+#A dictionary allows you to do that using a key. 
+
+person = {
+    "name": "Peppy",
+    "age":  0.5,
+    "home" : "Majestic"
+}
+print(person["age"])
+
+# %%
+#Adding a new key value pair. 
+car = {
+    'brand': "Honda",
+    'model': "City",
+    'year': 2014
+}
+car['colour'] = 'blue'
+print(car)
+#This allows to create a key that didn't exist
+#and to update the value of one. 
+
+# %%
+#Removing dictionary items
+year = car.pop('year') #removes a key and gives its value back
+print(year)
+print(car)
+
+#%%
+del car['brand']
+print(car)
+#Del simply removes it without giving the value back
+
+
+# %%
+item = car.popitem()#KV pair
+print(item)
+print(car)
+
+# %%
+car = {
+    "brand": "Honda",
+    "model": "City",
+    "year": 2014
+}
+
+print("brand" in car)
+print("Honda" in car)
+print("year" in car)
+print("colour" not in car)
+#Note: membership checks for the key, not the value. 
+
+#%%
+student = {
+    "name": "Mihika",
+    "age": 21,
+    "branch": "Mechatronics"
+}
+
+#this only prints the keys:
+for item in student: #can also use .keys()
+    print(item)
+
+#this prints the values:
+for x in student.values():
+    print(x)
+
+#this prints keys and values:
+for k, v in student.items():
+    print(k, v)
+
+#%%
+student.get("year")
+
+#%%
+#Dictionary Comprehension
+numbers = [1, 2, 3, 4, 5]
+
+result = {x: x * 10 for x in numbers}
+
+print(result)
+# %%
+squares = {x: x ** 2 for x in range(1, 6)}
+print(squares)
+
+#%%
+numbers = [2, 4, 6, 8, 10]
+result = {x: x/2 for x in numbers}
+print(result)
+
+#%%
+a = {"name": "Mihika", "age": 21}
+b = {"age": 22, "branch": "Mechatronics"}
+
+combined = {**a, **b}
+
+print(combined)
+
+#%%
+numbers = [1, 2, 1, 3, 2, 1, 4, 3]
+counts = {}
+for x in numbers:
+    if x in counts:
+        counts[x] +=1
+    else:
+        counts[x] = 1
+
+print(counts)
