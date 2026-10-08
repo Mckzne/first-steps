@@ -366,9 +366,142 @@ print(numbers)
 #Note: The add() method does not return any value, it modifies the set in place. Therefore, x and c will be None.
 
 #%%
-fruits.remove("banana")
-print(fruits)
-
-#%%
 fruits.discard("strawberry")
 print(fruits)
+#remove() raises a KeyError if the element doesn't exist but discard() removes the element if it exists but doesn't give an error if it's absent. 
+
+#%%
+numers = {10, 20, 30, 40}
+x = numers.pop()
+print(x)
+print(numers)
+
+#%%
+numers.clear()
+print(numers)
+
+#%%
+#Membership & Iteration
+fruits = {"apple", "banana", "mango", "orange"}
+print("banana" in fruits)
+print("grape" in fruits)
+print("grape" not in fruits)
+
+#%%
+#Iterating over a set
+fruits = {"banana", "apple", "mango"}
+for x in fruits:
+    print(x)
+
+#%%
+numbers = {10, 20, 30, 40, 50}
+for c in numbers:
+    print(c)
+#Note: Sets don't guarantee the order in the o/p
+
+#%%
+print(len(numbers))
+#len() behaves differently depending
+#on the data structure
+#for sets it returns the number of 
+#unique elements
+#for lists it returns the actual
+#length. 
+#len() itself doesnt remove the dupes
+#set() does.
+
+#%%
+numbers = {10, 10, 20, 30, 30, 30, 40}
+print(numbers)
+print(len(numbers))
+
+#%%
+nums = [10, 20, 30, 40, 30, 40]
+uniq_nums = set(nums)
+print(nums)
+print(uniq_nums)
+
+#%%
+fruits = ["apple", "banana", "apple", "mango", "banana", "orange"]
+unique_fruits = set(fruits)
+print(unique_fruits)
+print(len(unique_fruits))
+
+#%%
+#Union
+#Union takes everything from both
+#sets but only keeps the 
+#unique elements.
+a={1, 2, 3}
+b={3, 4, 5}
+res = a|b
+print(res)
+
+#%%
+#Intersection
+#Returns only elements present
+#In both sets
+result = a&b
+print(result)
+
+# %%
+#Difference: Whats in the
+#first set but not in the 
+#second set. 
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print(a-b)
+#Note: the order matters, and its
+#not actually subtracting values. 
+
+#%%
+#Symmetric Difference: elements
+#that are in either set but
+#not in both. 
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print(a^b)
+
+#%%
+#Method Versions of the ops
+print(a.union(b))
+print(a.intersection(b))
+print(a.difference(b))
+print(a.symmetric_difference(b))
+
+#%%
+#Comparing Sets
+#1. Subsets
+a = {1, 2}
+b = {1, 2, 3, 4}
+print(a.issubset(b))
+#Shorthand: a<=b
+
+#%%
+#2. Superset
+print(b.issuperset(a))
+#Shorthand: a>=b
+
+# %%
+#Disjoint sets: Ntg in common
+a = {1, 2, 3}
+b = {4, 5, 6}
+print(a.isdisjoint(b))
+
+#%%
+#Adding elements from another collection into an existing set
+nums = {1, 2, 3}
+nums.update({20, 30, 40})
+print(nums)
+
+#%%
+#Frozen Sets
+numbers = frozenset({10, 20, 30})
+print(numbers)
+print(type(numbers))
+
+# %%
+#A normal set cannot itself be an element of another set.
+#but you can have a set contain multiple frozen sets
+#because frozen sets are immutable
+#their hashing would remain unbroken
