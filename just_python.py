@@ -616,3 +616,42 @@ for x in numbers:
         counts[x] = 1
 
 print(counts)
+
+#%%
+#Control flow fluency
+#range()
+#range(stop)
+for i in range(5):
+    print(i)
+
+#%%
+#range(start, stop)
+#Note: the stop value itsef is excluded.
+for x in range(1, 6):
+    print(x)
+
+#%%
+#range(start, stop, step)
+#step controls the value by which the increment occurs.
+#A negative step lets you count backwards.
+for p in range(1, 9, 2):
+    print(p)
+#Note: rangwe doesn't let you create a list by itself. It gives an object
+#that can produce the numbers as you iterate over it. 
+# %%
+#enumerate()
+pets = ["Pep", "Mol", "Mil"]
+for i, name in enumerate(pets):
+    print(i, name)
+
+#%%
+#zip()
+age = [0.5, 8, 12]
+for x, y in zip(pets, age):
+    print(x, y)
+
+#%%
+#Comprehensions
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squares = [num * num for num in numbers if num > 5]
+print(squares)
